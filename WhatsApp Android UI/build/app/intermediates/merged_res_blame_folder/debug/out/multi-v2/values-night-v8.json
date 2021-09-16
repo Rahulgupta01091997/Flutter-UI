@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Rahul\\Desktop\\Flutter-UI\\WhatsApp Android UI\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "C:\\Users\\Rahul\\Desktop\\Interview_Preps\\Flutter-UI\\WhatsApp Android UI\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Rahul\\Desktop\\Flutter-UI\\WhatsApp Android UI\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\Rahul\\Desktop\\Interview_Preps\\Flutter-UI\\WhatsApp Android UI\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

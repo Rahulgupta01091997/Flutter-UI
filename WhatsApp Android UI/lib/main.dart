@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta/utils/chatMessages.dart';
+import 'Contacts.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,8 +27,14 @@ class HomePage extends StatelessWidget {
       initialIndex: 1,
       child: Scaffold(
           floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            backgroundColor: Colors.tealAccent[350],
+            onPressed: () {
+              print("pressed");
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Contacts()),
+              );
+            },
+            backgroundColor: Colors.tealAccent[400],
             child: Icon(Icons.chat_bubble),
           ),
           appBar: AppBar(
