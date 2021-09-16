@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:insta/utils/contactList.dart';
 
 class Contacts extends StatelessWidget {
   const Contacts({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,9 +65,40 @@ class Contacts extends StatelessWidget {
       body: Container(
         margin: EdgeInsets.only(top: 5),
         child: ListView(
-          itemExtent: 60,
+          shrinkWrap: true,
           children: [
-            ListTile(
+            Container(
+              padding: EdgeInsets.only(top: 5, bottom: 5),
+              child: ListTile(
+                  leading: Container(
+                    height: 40,
+                    width: 40,
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.only(top: 5, bottom: 5),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.tealAccent[400],
+                    ),
+                    child: Icon(
+                      Icons.group,
+                      color: Colors.white,
+                      size: 22,
+                    ),
+                  ),
+                  title: Container(
+                    padding: EdgeInsets.only(left: 5),
+                    child: Text(
+                      "New group",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  )),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 5, bottom: 5),
+              child: ListTile(
                 leading: Container(
                   height: 40,
                   width: 40,
@@ -78,7 +109,7 @@ class Contacts extends StatelessWidget {
                     color: Colors.tealAccent[400],
                   ),
                   child: Icon(
-                    Icons.group,
+                    Icons.person_add,
                     color: Colors.white,
                     size: 22,
                   ),
@@ -86,48 +117,111 @@ class Contacts extends StatelessWidget {
                 title: Container(
                   padding: EdgeInsets.only(left: 5),
                   child: Text(
-                    "New group",
+                    "New contact",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w600),
                   ),
-                )),
-            ListTile(
-              leading: Container(
-                height: 40,
-                width: 40,
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 10, bottom: 10),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.tealAccent[400],
                 ),
-                child: Icon(
-                  Icons.person_add,
-                  color: Colors.white,
-                  size: 22,
+                trailing: Image.asset(
+                  "assets/qr-generator.png",
+                  height: 20,
+                  width: 20,
+                  filterQuality: FilterQuality.high,
+                  colorBlendMode: BlendMode.clear,
                 ),
               ),
-              title: Container(
-                padding: EdgeInsets.only(left: 5),
-                child: Text(
-                  "New contact",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-              trailing: Image.asset(
-                "assets/qr-generator.png",
-                height: 30,
-                width: 30,
-              ),
-            )
+            ),
+            ContactItem(
+              name: "Suresh Raina",
+              image: "assets/SR.jpg",
+              status: "Believe",
+            ),
+            ContactItem(
+              name: "Mahi Bhai",
+              image: "assets/MS.jpg",
+              status: "Process > Results",
+            ),
+            ContactItem(
+              name: "Virat Kohli",
+              image: "assets/VK.jpg",
+              status: "Go Hard or Go Home",
+            ),
+            ContactItem(
+              name: "Rohit Sharma",
+              image: "assets/RS.jpg",
+              status: "Aala Re.",
+            ),
+            ContactItem(
+              name: "KL Rahul",
+              image: "assets/KL.jpg",
+              status: "Shut the White Noise",
+            ),
+            ContactItem(
+              name: "Bhuvaneshwar Kumar",
+              image: "assets/BK.jpg",
+              status: "Improving",
+            ),
+            ContactItem(
+              name: "Ravindra Jadeja",
+              image: "assets/RJ.jpg",
+              status: "Sir Jadeja",
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class ContactItem extends StatelessWidget {
+  final String name;
+  final String image;
+  final String status;
+  const ContactItem(
+      {Key? key, required this.name, required this.image, required this.status})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ListTile(
+          leading: Container(
+            height: 40,
+            width: 40,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(200),
+              child: Image.asset(
+                image,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          title: Container(
+            padding: EdgeInsets.only(left: 5),
+            child: Text(
+              name,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600),
+            ),
+          ),
+          subtitle: Container(
+            padding: EdgeInsets.only(left: 5),
+            child: Text(
+              status,
+              style: TextStyle(
+                color: Colors.grey[400],
+                fontSize: 15,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
